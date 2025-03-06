@@ -15,21 +15,24 @@ bool ButtonWebhook::begin() {
 	Description.type = "button";
 	Description.name = "Button Webhook";
 	Description.actions = {{"Fire Webhook", 0}};
-	// Create settings if necessary
-	if (!checkConfig(config_path)) {
-		// Set defaults
-		current_config.method = "GET";
-		digital_config.id = 0;
-		digital_config.mode = "INPUT";
-		digital_config.taskEnabled = false;
-		digital_config.trigger = "NONE";
-		task_config.taskName = "ButtonHook";
-		task_config.taskPeriod = 1000;
-		return setConfig(getConfig(), true);
-	} else {
-		// Load settings
-		return setConfig(Storage::readFile(config_path), false);
+	if (DigitalInputTrigger::begin()) {
+		// Create settings if necessary
+		if (!checkConfig(config_path)) {
+			// Set defaults
+			current_config.method = "GET";
+			digital_config.id = 0;
+			digital_config.mode = "INPUT";
+			digital_config.taskEnabled = false;
+			digital_config.trigger = "NONE";
+			task_config.taskName = "ButtonHook";
+			task_config.taskPeriod = 1000;
+			return setConfig(getConfig(), true);
+		} else {
+			// Load settings
+			return setConfig(Storage::readFile(config_path), false);
+		}
 	}
+	return false;
 }
 
 /// @brief Receives an action
