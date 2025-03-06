@@ -1,0 +1,52 @@
+{
+	"name": "actor-ButtonWebhook",
+	"version": "0.5.0",
+	"description": "Triggers a webhook on button press",
+	"keywords": "Fabrica-IO, actor, button, webhook",
+	"repository":
+	{
+	  "type": "git",
+	  "url": "https://github.com/FabricaIO/actor-ButtonWebhook.git"
+	},
+	"authors":
+	[
+	  {
+		"name": "Sam Groveman",
+		"email": "SamGroveman@outlook.com",
+		"url": "https://github.com/FabricaIO"
+	  }
+	],
+	"dependencies": {
+		"Webhook": "https://github.com/FabricaIO/util-Webhook",
+		"DigitalInputTrigger": "https://github.com/FabricaIO/util-DigitalInputTrigger.git"
+	  },
+	"license": "GPLv3",
+	"homepage": "https://github.com/FabricaIO",
+	"frameworks": "arduino",
+	"platforms": "*",
+	"fabrica-io" : {
+		"name": "buttonHook",
+		"type": 1,
+		"category": "digital input",
+		"libname": "ButtonWebhook",
+		"includes": ["ButtonWebhook"],
+		"description": "Button that triggers a webhook",
+		"constructor":
+		[
+			[
+				{
+					"name": "Pin",
+					"type": "int",
+					"description": "The pin to use",
+					"default": ""
+				},
+				{
+					"name": "configFile",
+					"type": "String",
+					"description": "The name of the config file",
+					"default": "ButtonWebhook.json"
+				}
+			]
+		]
+	}
+  }
