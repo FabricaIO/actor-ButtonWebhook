@@ -90,7 +90,7 @@ bool ButtonWebhook::setConfig(String config, bool save) {
 void ButtonWebhook::runTask(long elapsed) {
 	if (elapsed >= task_config.taskPeriod) {
 		if (triggered) {
-			String time = String(lasRunTime + elapsedMillis / 1000);
+			String time = String(lastRunTime + elapsedMillis / 1000);
 			String millis = String(elapsedMillis % 1000);
 			String payload = "{\"id\":" + String(digital_config.id) + ",\"time\":" + time + ",\"ms\":" + millis + "}";
 			Logger.println(payload);
