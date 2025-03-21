@@ -41,6 +41,18 @@
 					"default": ""
 				},
 				{
+					"name": "Url",
+					"type": "String",
+					"description": "URL to send the webhook to",
+					"default": "http://127.0.0.1"
+				},
+				{
+					"name": "customHeaders",
+					"type": "std::map<String, String>",
+					"description": "Custom HTTP Headers",
+					"default": "{}"
+				},
+				{
 					"name": "configFile",
 					"type": "String",
 					"description": "The name of the config file",
