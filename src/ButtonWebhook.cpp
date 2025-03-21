@@ -88,7 +88,7 @@ bool ButtonWebhook::setConfig(String config, bool save) {
 }
 
 void ButtonWebhook::runTask(long elapsed) {
-	if (elapsed >= task_config.taskPeriod) {
+	if (taskPeriodTriggered(elapsed)) {
 		if (triggered) {
 			String time = String(lastRunTime + elapsedMillis / 1000);
 			String millis = String(elapsedMillis % 1000);
