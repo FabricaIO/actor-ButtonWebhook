@@ -20,7 +20,7 @@ class ButtonWebhook : public Actor, public DigitalInputTrigger {
 		String getConfig();
 		bool setConfig(String config, bool save);
 		JsonDocument addAdditionalConfig();
-		void runTask(long elapsed);
+		void runTask(ulong elapsed);
 
 	protected:
 		/// @brief Holds button webhook configuration
