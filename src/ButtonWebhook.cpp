@@ -51,8 +51,13 @@ std::tuple<bool, String> ButtonWebhook::receiveAction(int action, String payload
 String ButtonWebhook::getConfig() {
 	// Allocate the JSON document
 	JsonDocument doc = addAdditionalConfig();
+
+	// Add name
+	doc["Name"] = Description.name;
+
 	// Create string to hold output
 	String output;
+	
 	// Serialize to string
 	serializeJson(doc, output);
 	return output;
@@ -75,6 +80,7 @@ bool ButtonWebhook::setConfig(String config, bool save) {
 			return false;
 		}
 		// Assign loaded values
+		Description.name = doc["Name"].as<String>();
 		webhook.webhook_config.url = doc["url"].as<String>();
 		current_config.method = doc["method"]["current"].as<String>();
 		
