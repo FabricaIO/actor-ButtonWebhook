@@ -1,9 +1,10 @@
 #include"ButtonWebhook.h"
 
 /// @brief Creates a button webhook
+/// @param Name The device name
 /// @param Pin Pin to use
 /// @param configFile Name of the config file to use
-ButtonWebhook::ButtonWebhook(int Pin, String Url, std::map<String, String> customHeaders, String configFile) : DigitalInputTrigger(Pin), webhook(Url, customHeaders) {
+ButtonWebhook::ButtonWebhook(String Name, int Pin, String Url, std::map<String, String> customHeaders, String configFile) : DigitalInputTrigger(Pin), webhook(Url, customHeaders), Actor(Name) {
 	config_path = "/settings/act/" + configFile;
 }
 
@@ -13,7 +14,6 @@ bool ButtonWebhook::begin() {
 	// Set description
 	Description.actionQuantity = 1;
 	Description.type = "button";
-	Description.name = "Button Webhook";
 	Description.actions = {{"Fire Webhook", 0}};
 	if (DigitalInputTrigger::begin()) {
 		// Create settings if necessary

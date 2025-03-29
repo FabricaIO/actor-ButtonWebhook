@@ -14,7 +14,7 @@
 /// @brief Class describing a button that triggers a webhook
 class ButtonWebhook : public Actor, public DigitalInputTrigger {
 	public:
-		ButtonWebhook(int Pin, String url, std::map<String, String> customHeaders = {}, String configFile = "ButtonWebhook.json");
+		ButtonWebhook(String Name, int Pin, String url, std::map<String, String> customHeaders = {}, String configFile = "ButtonWebhook.json");
 		bool begin();
 		std::tuple<bool, String> receiveAction(int action, String payload = "");
 		String getConfig();
