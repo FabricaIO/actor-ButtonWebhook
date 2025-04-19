@@ -43,7 +43,7 @@ std::tuple<bool, String> ButtonWebhook::receiveAction(int action, String payload
 	if (action == 0) {
 		runTask(LONG_MAX);
 	}	
-	return { true, R"({"Response": "OK"})" };
+	return { true, R"({"success": true, "Response": "OK"})" };
 }
 
 /// @brief Gets the current config
