@@ -24,7 +24,7 @@ bool ButtonWebhook::begin() {
 			digital_config.mode = "INPUT";
 			digital_config.taskEnabled = false;
 			digital_config.trigger = "NONE";
-			task_config.taskName = "ButtonHook";
+			task_config.set_taskName(Description.name.c_str());
 			task_config.taskPeriod = 1000;
 			return setConfig(getConfig(), true);
 		} else {
@@ -81,8 +81,13 @@ bool ButtonWebhook::setConfig(String config, bool save) {
 		}
 		// Assign loaded values
 		Description.name = doc["Name"].as<String>();
+		task_config.set_taskName(Description.name.c_str());
 		webhook.webhook_config.url = doc["url"].as<String>();
 		current_config.method = doc["method"]["current"].as<String>();
+
+		if (!enableTask(true)) {
+			return false;
+		}
 		
 		// Save config if requested
 		if (save) {
