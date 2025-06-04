@@ -17,7 +17,7 @@
 	  }
 	],
 	"dependencies": {
-		"Webhook": "https://github.com/FabricaIO/util-Webhook",
+		//"WebhookAction": "https://github.com/FabricaIO/actor-WebhookAction",
 		"DigitalInputTrigger": "https://github.com/FabricaIO/util-DigitalInputTrigger.git"
 	  },
 	"license": "GPLv3",

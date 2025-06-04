@@ -9,10 +9,10 @@
 #pragma once
 #include <Actor.h>
 #include <DigitalInputTrigger.h>
-#include <Webhook.h>
+#include <WebhookAction.h>
 
 /// @brief Class describing a button that triggers a webhook
-class ButtonWebhook : public Actor, public DigitalInputTrigger {
+class ButtonWebhook : public WebhookAction, public DigitalInputTrigger {
 	public:
 		ButtonWebhook(String Name, int Pin, String url, std::map<String, String> customHeaders = {}, String configFile = "ButtonWebhook.json");
 		bool begin();
@@ -23,15 +23,6 @@ class ButtonWebhook : public Actor, public DigitalInputTrigger {
 		void runTask(ulong elapsed);
 
 	protected:
-		/// @brief Holds button webhook configuration
-		struct {
-			/// @brief The request method to use
-			String method;
-		 } current_config;
-
 		/// @brief Path to configuration file
 		String config_path;
-
-		/// @brief Webhook to for sending signal
-		Webhook webhook;
 };
