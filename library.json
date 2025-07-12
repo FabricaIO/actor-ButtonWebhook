@@ -25,7 +25,7 @@
 	"frameworks": "arduino",
 	"platforms": "*",
 	"fabricaio" : {
-		"name": "buttonHook",
+		"name": "ButtonHook",
 		"type": 1,
 		"category": "digital input",
 		"libname": "ButtonWebhook",
