@@ -19,10 +19,11 @@ class ButtonWebhook : public WebhookAction, public DigitalInputTrigger {
 		std::tuple<bool, String> receiveAction(int action, String payload = "");
 		String getConfig();
 		bool setConfig(String config, bool save);
-		JsonDocument addAdditionalConfig();
 		void runTask(ulong elapsed);
 
 	protected:
 		/// @brief Path to configuration file
 		String config_path;
+
+		JsonDocument addAdditionalConfig();
 };
