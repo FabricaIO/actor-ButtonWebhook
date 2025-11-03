@@ -14,7 +14,6 @@ ButtonWebhook::ButtonWebhook(String Name, int Pin, String Url, std::map<String, 
 /// @return True on success
 bool ButtonWebhook::begin() {
 	// Set description
-	Description.actionQuantity = 1;
 	Description.type = "button";
 	Description.actions = {{"Fire Webhook", 0}};
 	if (DigitalInputTrigger::begin()) {
